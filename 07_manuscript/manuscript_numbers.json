@@ -107,6 +107,95 @@
     "source": "02_qc/qc_per_sample.csv",
     "note": "min and max of per-sample median mitochondrial percent"
   },
+  "n_sensitivity_strata": {
+    "value": 15,
+    "source": "05_stats/sensitivity_lowconf.csv",
+    "note": ""
+  },
+  "n_sensitivity_sign_agree": {
+    "value": 10,
+    "source": "05_stats/sensitivity_lowconf.csv",
+    "note": "of primary strata"
+  },
+  "n_sensitivity_sign_disagree": {
+    "value": 1,
+    "source": "05_stats/sensitivity_lowconf.csv",
+    "note": ""
+  },
+  "n_sensitivity_new_strata": {
+    "value": 4,
+    "source": "05_stats/sensitivity_lowconf.csv",
+    "note": "classes evaluable only after fallback"
+  },
+  "max_abs_delta_sensitivity": {
+    "value": 0.061,
+    "source": "05_stats/sensitivity_lowconf.csv",
+    "note": ""
+  },
+  "min_p_sensitivity": {
+    "value": 0.2,
+    "source": "05_stats/sensitivity_lowconf.csv",
+    "note": ""
+  },
+  "n_sensitivity_FDR005": {
+    "value": 0,
+    "source": "05_stats/sensitivity_lowconf.csv",
+    "note": ""
+  },
+  "aifm1_detection_range_pct": {
+    "value": [
+      7.8,
+      33.0
+    ],
+    "source": "08_audit/TableS3_ox_genes_by_celltype.csv",
+    "note": ""
+  },
+  "keap1_detection_range_pct": {
+    "value": [
+      7.0,
+      41.1
+    ],
+    "source": "08_audit/TableS3_ox_genes_by_celltype.csv",
+    "note": ""
+  },
+  "pgam5_detection_range_pct": {
+    "value": [
+      5.9,
+      24.7
+    ],
+    "source": "08_audit/TableS3_ox_genes_by_celltype.csv",
+    "note": ""
+  },
+  "excitatory_neuron_cells_GSE267933": {
+    "value": 73,
+    "source": "08_audit/Table3_annotation.csv",
+    "note": "0.43% of cohort cells"
+  },
+  "excitatory_neuron_cells_GSE222430": {
+    "value": 0,
+    "source": "08_audit/Table3_annotation.csv",
+    "note": "no excitatory-neuron class passed the annotation margin"
+  },
+  "dropout_GSE267933_control_pct": {
+    "value": "6.0–12.1%",
+    "source": "08_audit/TableS4_lowconf_by_sample.csv",
+    "note": ""
+  },
+  "dropout_GSE267933_exposed_pct": {
+    "value": "2.3–5.8%",
+    "source": "08_audit/TableS4_lowconf_by_sample.csv",
+    "note": ""
+  },
+  "dropout_GSE222430_control_pct": {
+    "value": "47.2–56.8%",
+    "source": "08_audit/TableS4_lowconf_by_sample.csv",
+    "note": ""
+  },
+  "dropout_GSE222430_exposed_pct": {
+    "value": "48.7–55.4%",
+    "source": "08_audit/TableS4_lowconf_by_sample.csv",
+    "note": ""
+  },
   "largest_abs_ox_core_delta": {
     "value": -0.061,
     "source": "05_stats/sample_level_tests.csv",
@@ -122,6 +211,11 @@
     "source": "05_stats/separation_summary.csv",
     "note": ""
   },
+  "n_ferro_larger_scale_free": {
+    "value": 4,
+    "source": "05_stats/separation_tests.csv",
+    "note": "out of 11; scale-free |delta_ox|-|delta_ferro| < 0"
+  },
   "cap": {
     "value": 20000,
     "source": "scripts/common.py:QC_THRESHOLDS",
@@ -133,7 +227,7 @@
     "note": ""
   },
   "main_text_word_count": {
-    "value": 2978,
+    "value": 4247,
     "source": "07_manuscript/single-cell-localization-of-oxeiptosis-transcripts_v2.0.md",
     "note": "computed from non-table, non-reference lines"
   }

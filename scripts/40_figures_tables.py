@@ -158,7 +158,7 @@ steps = [
     (0.79, "INFERENCE (n>=3/condition): GSE267933, GSE222430\nLOCALIZATION_ONLY: GSE153598, GSE196239\nBULK_REFERENCE: GSE141242"),
     (0.61, "Per-sample QC -> Leiden clustering -> marker panels\nlow-margin clusters -> LowConfidence (excluded)"),
     (0.44, "LOCKED gene sets: ox_core (AIFM1/KEAP1/PGAM5)\nNRF2 antagonistic | ferroptosis driver/suppressor"),
-    (0.27, "One sample-level value per cell type\nExact permutation (20 labelings; floor p=0.1)\nFamilies A (ox_core), B (secondary + separation D), C (LR)"),
+    (0.27, "One sample-level value per cell type\nExact permutation (20 labelings; floor p=0.1)\nFamilies A (ox_core), B1 (modules), B2 (separation D), C (LR)"),
     (0.09, "All transcript results exploratory\nPROSPECTIVE: p-AIFM1(S116)/total IF + phosphatase\ncontrols + inhibitor rescue matrix"),
 ]
 for y, txt in steps:

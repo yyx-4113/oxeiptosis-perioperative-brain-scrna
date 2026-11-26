@@ -205,6 +205,12 @@ for gse, cfg in DATASETS.items():
             gval = hedges_g(b, a)
             (ci_d_lo, ci_d_hi), frac_d = boot_ci(b, a, cliffs_delta)
             (ci_g_lo, ci_g_hi), frac_g = boot_ci(b, a, hedges_g)
+            # Round 3 (statistics blocking 1): the finite-replicate fraction is
+            # almost always >0.95 even when the interval itself is pathological
+            # (e.g. [-45, -0.9]) because a single near-zero pooled SD explodes g.
+            # The interval is therefore never reported; only the point estimate
+            # and the valid fraction are retained, matching the manuscript.
+            ci_g_lo, ci_g_hi = np.nan, np.nan
             test_rows.append({
                 "dataset": gse, "celltype": ct, "module": mod,
                 "n_control": len(a), "n_exposed": len(b),
@@ -220,13 +226,15 @@ for gse, cfg in DATASETS.items():
             })
 
 tdf = pd.DataFrame(test_rows)
-# Round 2 (statistics reviewer M2): three pre-declared families per protocol §7.3.
-# A = primary ox_core across cell types x datasets.
-# B = secondary modules, corrected WITHIN each dataset.
+# Round 3: family labels now follow the manuscript exactly (A / B1 / B2 / C).
+# The pre-analysis plan declared A, B and C; family B was split into B1
+# (secondary modules) and B2 (separation endpoint D) during implementation,
+# before any test statistic was inspected.  That deviation is amendment A5 in
+# 08_audit/amendments.md and must not be described as pre-registration.
 t = tdf["module"].to_numpy()
 famA = t == "ox_core"
 famB = ~famA
-tdf["FDR_family"] = np.where(famA, "A_primary_ox_core", "B_secondary")
+tdf["FDR_family"] = np.where(famA, "A_primary_ox_core", "B1_secondary_modules")
 tdf["FDR_BH_within_family"] = np.nan
 tdf.loc[famA, "FDR_BH_within_family"] = bh_fdr(tdf.loc[famA, "permutation_p_two_sided"].to_numpy())
 for ds in tdf.dataset.unique():
@@ -248,10 +256,12 @@ if len(cdf):
 cdf.to_csv(STATS / "composition_tests.csv", index=False, encoding="utf-8-sig")
 
 meta = {
-    "fdr_family": STATS_CONFIG["fdr_family"],
+    "fdr_family": ("A:ox_core(celltype x dataset); B1:secondary modules(per dataset); "
+                   "B2:separation D(per dataset); C:LR(per dataset)"),
+    "fdr_family_declared_in_plan": "A, B, C (three families); B split into B1/B2 as amendment A5",
     "fdr_family_sizes": {
         "A_primary_ox_core": int(famA.sum()),
-        "B_secondary_by_dataset": {str(d): int(((tdf.dataset == d) & famB).sum()) for d in tdf.dataset.unique()},
+        "B1_secondary_by_dataset": {str(d): int(((tdf.dataset == d) & famB).sum()) for d in tdf.dataset.unique()},
     },
     "n_tests": len(tdf),
     "min_possible_two_sided_p": 2 / 20,

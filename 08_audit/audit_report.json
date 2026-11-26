@@ -83,12 +83,12 @@
     {
       "check": "fdr_family_A_declared",
       "status": "PASS",
-      "detail": "{'A_primary_ox_core': 11, 'B_secondary_by_dataset': {'GSE267933': 25, 'GSE222430': 30}}"
+      "detail": "{'A_primary_ox_core': 11, 'B1_secondary_by_dataset': {'GSE267933': 25, 'GSE222430': 30}}"
     },
     {
-      "check": "fdr_family_B_declared",
+      "check": "fdr_family_B1_declared",
       "status": "PASS",
-      "detail": "{'A_primary_ox_core': 11, 'B_secondary_by_dataset': {'GSE267933': 25, 'GSE222430': 30}}"
+      "detail": "{'A_primary_ox_core': 11, 'B1_secondary_by_dataset': {'GSE267933': 25, 'GSE222430': 30}}"
     },
     {
       "check": "separation_has_p_and_CI",
@@ -143,10 +143,40 @@
     {
       "check": "manuscript_number_sources_exist",
       "status": "PASS",
-      "detail": "tracked=25 missing=[]"
+      "detail": "tracked=42 missing=[]"
+    },
+    {
+      "check": "sensitivity_strata_cover_primary",
+      "status": "PASS",
+      "detail": "sensitivity=15 primary_ox=11"
+    },
+    {
+      "check": "sensitivity_no_new_FDR05",
+      "status": "PASS",
+      "detail": "n_sig=0"
+    },
+    {
+      "check": "sensitivity_delta_not_inflated",
+      "status": "PASS",
+      "detail": "max_sens=0.060998 max_primary=0.060998"
+    },
+    {
+      "check": "tableS3_gene_detection_complete",
+      "status": "PASS",
+      "detail": "rows=15 gene_cols=3"
+    },
+    {
+      "check": "tableS4_per_sample_dropout",
+      "status": "PASS",
+      "detail": "rows=12 pct_range=(2.3,56.8)"
+    },
+    {
+      "check": "hedges_g_interval_not_reported",
+      "status": "PASS",
+      "detail": "non_na_lo=0"
     }
   ],
-  "n_pass": 29,
+  "n_pass": 35,
   "n_fail": 0,
   "seed": 20261125
 }

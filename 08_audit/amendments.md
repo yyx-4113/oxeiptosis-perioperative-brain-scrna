@@ -14,6 +14,7 @@ and the executed analysis. Entries are written at the time of revision.
 | A4 | CellChat pathway-level ligand–receptor testing | targeted 32-pair ligand×receptor product panel (27–26 evaluable) | Core triad proteins are intracellular and absent from CellChatDB; targeted panel is transparent and sample-level | Disclosed in Methods; results labelled indirect |
 | A5 | Bootstrap B≥10000 | 10000 (revised in Round 2; originally 2000) | Round-1 peer review identified B=2000 as a protocol deviation | Corrected before resubmission; see entry R2 |
 | A6 | Delta defined as median difference | mean difference (revised in Round 2 to median difference) | Round-1 review identified deviation | Corrected before resubmission; see entry R2 |
+| A7 | Three FDR families (A, B, C) in protocol §7.3 | Four families: A, B1 (secondary modules), B2 (separation endpoint D), C | B was split during implementation because the separation endpoint was added after the protocol was locked; the split was written into the executed code before any test statistic was computed | Declared in Methods and Discussion as an amendment, **not** as pre-registration; see section B |
 
 ## B. Statistical analysis plan — family structure (corrected in Round 2)
 
@@ -23,8 +24,8 @@ was identified as a Major concern by the independent statistical reviewer and is
 corrected here **before** re-submission:
 
 - **Family A (primary)**: `ox_core` only, tested across cell types × datasets.
-- **Family B (secondary)**: split into two pre-declared sub-families, each BH-corrected
-  **within each dataset**:
+- **Family B (secondary)**: split into two sub-families, each BH-corrected
+  **within each dataset** (this split is amendment **A7**):
   - **B1** = `nrf2_antag`, `ferro_driver`, `ferro_suppressor`, `ferro_net`, `ox_core_meanexpr`;
   - **B2** = the separation endpoint D alone.
   The Round-2 reviewer noted that pooling B1 and B2 into one BH family would change
@@ -37,10 +38,13 @@ corrected here **before** re-submission:
 - Composition proportions are reported as exploratory descriptive tests in a
   separate explicitly labelled family (not part of the primary inferential claim).
 
-Because the correction follows inspection of results, the analysis is reported
-as a **post hoc refinement of the analysis plan**, not as an execution of the
-original three-family definition. All three expert reviewers received the
-corrected version for Round-2 review.
+Two different facts must not be merged. (i) The **Round-1** correction, which
+replaced one pooled 42-test family with families A/B/C, was made **after** seeing
+Round-1 results and is therefore a post hoc refinement. (ii) The **A7 split of B
+into B1/B2** was written into the executed code before any test statistic was
+computed, but after the protocol was locked; it is an amendment, not a
+pre-registered analysis. The manuscript states exactly this and never describes
+the four-family structure as pre-registered.
 
 ## C. Round-2 revisions triggered by peer review
 
@@ -65,3 +69,22 @@ corrected version for Round-2 review.
   culture) remain descriptive only.
 - **No claim of pathway activation from transcription**: p-AIFM1(S116) immunofluorescence
   remains the proposed confirmatory endpoint.
+
+## E. Round-3 revisions (2026-11-26)
+
+Three independent reviewers (statistics, biology, editor) reviewed the Round-2
+manuscript and all returned "major revision". Actions:
+
+| # | Reviewer concern | Action | Timestamp |
+|---|---|---|---|
+| R3-1 | Hedges' g intervals were reported in Table 4 while the text said they were suppressed | Interval suppressed in the code for every row (`hedges_g_CI95_lo/hi` set to NA); text and Fig. 4 legend now state point estimate only; audit check added | 2026-11-26 |
+| R3-2 | Four FDR families presented as pre-registered although the plan declared three | Amendment A7 added; Methods, Abstract and Discussion now state that A/B/C were declared and B was split before any statistic was computed; `stats_metadata.json` records both facts | 2026-11-26 |
+| R3-3 | "0 of 66 FDR<0.05" framed as a negative finding although it is arithmetically forced by the p floor | Results, Discussion and Conclusion rewritten: the design cannot separate absence of effect from insufficient resolution | 2026-11-26 |
+| R3-4 | Differential annotation dropout between arms in GSE267933 not disclosed and untested | Per-sample dropout table added (Table S4); fallback-label sensitivity analysis added (`scripts/25_sensitivity.py`, `05_stats/sensitivity_lowconf.csv`) | 2026-11-26 |
+| R3-5 | "9 of 11" compared raw score magnitudes across two non-comparable scales | Both counts now reported with their definitions: raw 9/11, scale-free 4/11; neither supports a pathway-specific claim | 2026-11-26 |
+| R3-6 | Separation D described as computed across all cells and as a paired test | Methods corrected to the executed code: z across sample×cell-type values, within-sample subtraction, unpaired permutation; scale-free contrast reported | 2026-11-26 |
+| R3-7 | §3.3 table selected on nominal p with undeclared tie-breaking and omitted the largest shift | Ties broken by absolute delta; top-6 now contains the largest ox_core shift | 2026-11-26 |
+| R3-8 | Title claims "localization" without per-cell-type transcript evidence; excitatory neurons essentially absent | Table S3 added (per cell type detection and mean expression of Aifm1/Keap1/Pgam5); per-cohort class composition and the missing excitatory class now stated | 2026-11-26 |
+| R3-9 | Nine of 13 references never cited in text; Limitations placed after References; no Conclusion or Ethics heading; Figs. 1/3/4/S1 uncited | Citations inserted; sections reordered (Discussion → Limitations → Conclusion → Declarations → Data availability → References); figure citations added | 2026-11-26 |
+| R3-10 | Data-availability URL returned 404 at review time | Repository created and pushed, tag v1.0.0, then v1.0.1 after these revisions; URL and release verified anonymous HTTP 200 | 2026-11-26 |
+| R3-11 | Manifest included the deposit directory, so local and repository manifests diverged | `repro_repo`, `.git` and `__pycache__` excluded from manifest generation; repository manifest regenerated over its own file set | 2026-11-26 |

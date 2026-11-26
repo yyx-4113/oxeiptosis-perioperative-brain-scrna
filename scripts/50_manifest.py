@@ -5,7 +5,9 @@ from pathlib import Path
 
 from common import ROOT, AUDIT
 
-SKIP_DIRS = {"raw"}
+# Round 3 (editor non-blocking 2): the deposit directory and VCS metadata must
+# not enter the manifest, otherwise local and repository manifests diverge.
+SKIP_DIRS = {"raw", "repro_repo", ".git", "__pycache__"}
 # Round 2 (editor minor 8): include scripts and repository metadata so the
 # "complete script set under checksum" statement is accurate.  h5ad objects
 # are large and reproducible from locked scripts + source matrices; they are

@@ -1,0 +1,11 @@
+{
+  "n_strata": 15,
+  "n_sign_agree": 10,
+  "n_sign_disagree": 1,
+  "n_new_in_sensitivity": 4,
+  "min_p_sensitivity": 0.2,
+  "n_sensitivity_FDR005": 0,
+  "max_abs_delta_primary": 0.06099843235810597,
+  "max_abs_delta_sensitivity": 0.06099843235810597,
+  "seed": 20261125
+}

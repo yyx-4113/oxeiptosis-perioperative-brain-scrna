@@ -76,7 +76,7 @@ check("delta_statistic_protocol", meta_stats.get("delta_statistic") == "median",
 # family sizes must match the three-family design declared in metadata
 fam = meta_stats.get("fdr_family_sizes", {})
 check("fdr_family_A_declared", int(fam.get("A_primary_ox_core", 0)) > 0, fam)
-check("fdr_family_B_declared", bool(fam.get("B_secondary_by_dataset")), fam)
+check("fdr_family_B1_declared", bool(fam.get("B1_secondary_by_dataset")), fam)
 # separation endpoint must carry inference (Round 2, statistics M3)
 sp_path = STATS / "separation_tests.csv"
 if sp_path.exists():
@@ -106,7 +106,7 @@ if ann_tab.exists():
           f"clusters={len(lc)}, cells={int(lc.n_cells.sum())}")
 # N4/N10: family B1 and B2 q values must be BH-consistent with their declared families
 for ds in tdf.dataset.unique():
-    for fam, label in [("B_secondary", "B1")]:
+    for fam, label in [("B1_secondary_modules", "B1")]:
         m = (tdf.dataset == ds) & (tdf.FDR_family == fam)
         if m.any():
             sub = tdf[m]
@@ -173,6 +173,50 @@ if numpath and numpath.exists():
           f"tracked={len(tracked)} missing={missing_src}")
 else:
     check("manuscript_number_sources_exist", False, "manuscript_numbers.json not found")
+
+# ---- Round-3 additions: annotation-dropout sensitivity and localization tables
+sens_p = STATS / "sensitivity_lowconf.csv"
+if sens_p.exists():
+    sen = pd.read_csv(sens_p)
+    prim_ox = tdf[tdf.module == "ox_core"]
+    check("sensitivity_strata_cover_primary",
+          len(sen) >= len(prim_ox),
+          f"sensitivity={len(sen)} primary_ox={len(prim_ox)}")
+    check("sensitivity_no_new_FDR05",
+          int((sen.FDR_BH_sensitivity_A < STATS_CONFIG["alpha"]).sum()) == 0,
+          f"n_sig={int((sen.FDR_BH_sensitivity_A < STATS_CONFIG['alpha']).sum())}")
+    # The sensitivity rerun must not manufacture a bigger effect than the primary run
+    check("sensitivity_delta_not_inflated",
+          float(sen.delta_sensitivity.abs().max()) <= float(prim_ox.delta_exposed_minus_control.abs().max()) + 1e-9,
+          f"max_sens={float(sen.delta_sensitivity.abs().max()):.6f} "
+          f"max_primary={float(prim_ox.delta_exposed_minus_control.abs().max()):.6f}")
+else:
+    check("sensitivity_strata_cover_primary", False, "sensitivity_lowconf.csv missing")
+
+s3 = AUDIT / "TableS3_ox_genes_by_celltype.csv"
+if s3.exists():
+    t3 = pd.read_csv(s3)
+    need = [c for c in t3.columns if c.startswith("pct_expressing_")]
+    check("tableS3_gene_detection_complete",
+          len(need) >= 3 and len(t3) >= 10 and t3[need].notna().all().all(),
+          f"rows={len(t3)} gene_cols={len(need)}")
+else:
+    check("tableS3_gene_detection_complete", False, "TableS3 missing")
+
+s4 = AUDIT / "TableS4_lowconf_by_sample.csv"
+if s4.exists():
+    t4 = pd.read_csv(s4)
+    ok4 = (len(t4) == 12 and t4.pct_lowconfidence.between(0, 100).all()
+           and t4.groupby("dataset").size().min() == 6)
+    check("tableS4_per_sample_dropout", ok4,
+          f"rows={len(t4)} pct_range=({t4.pct_lowconfidence.min():.1f},{t4.pct_lowconfidence.max():.1f})")
+else:
+    check("tableS4_per_sample_dropout", False, "TableS4 missing")
+
+# Hedges' g interval must be absent from every row (Round-3 statistics blocking 1)
+check("hedges_g_interval_not_reported",
+      bool(tdf.hedges_g_CI95_lo.isna().all() and tdf.hedges_g_CI95_hi.isna().all()),
+      f"non_na_lo={int(tdf.hedges_g_CI95_lo.notna().sum())}")
 
 report = {"checks": checks, "n_pass": sum(c["status"] == "PASS" for c in checks),
           "n_fail": sum(c["status"] == "FAIL" for c in checks),
