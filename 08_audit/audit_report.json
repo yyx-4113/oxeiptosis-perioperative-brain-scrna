@@ -1,0 +1,152 @@
+{
+  "checks": [
+    {
+      "check": "file_exists:sample_inventory.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "file_exists:qc_per_sample.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "file_exists:sample_scores.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "file_exists:sample_level_tests.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "file_exists:separation_summary.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "file_exists:lr_panel_tests.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "file_exists:MANIFEST.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "n_replicates_GSE267933",
+      "status": "PASS",
+      "detail": "{'Control': 3, 'Sevo+Surgery': 3}"
+    },
+    {
+      "check": "n_replicates_GSE222430",
+      "status": "PASS",
+      "detail": "{'Control': 3, 'Sevoflurane': 3}"
+    },
+    {
+      "check": "sample_level_at_most_one_value_per_sample",
+      "status": "PASS",
+      "detail": "group sizes <=3; incomplete strata={('GSE267933', 'Inhibitory_neuron', 'Control'): 2}"
+    },
+    {
+      "check": "composition_unique_per_dataset_celltype",
+      "status": "PASS",
+      "detail": "n_rows=14, key multiplicities=[np.int64(1)]"
+    },
+    {
+      "check": "composition_fdr_family_size",
+      "status": "PASS",
+      "detail": "rows=14, unique_keys=14"
+    },
+    {
+      "check": "permutation_resolution_floor",
+      "status": "PASS",
+      "detail": "floor=0.1, violations=0"
+    },
+    {
+      "check": "FDR_at_least_p",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bootstrap_reps_protocol",
+      "status": "PASS",
+      "detail": "B=10000"
+    },
+    {
+      "check": "delta_statistic_protocol",
+      "status": "PASS",
+      "detail": "stat=median"
+    },
+    {
+      "check": "fdr_family_A_declared",
+      "status": "PASS",
+      "detail": "{'A_primary_ox_core': 11, 'B_secondary_by_dataset': {'GSE267933': 25, 'GSE222430': 30}}"
+    },
+    {
+      "check": "fdr_family_B_declared",
+      "status": "PASS",
+      "detail": "{'A_primary_ox_core': 11, 'B_secondary_by_dataset': {'GSE267933': 25, 'GSE222430': 30}}"
+    },
+    {
+      "check": "separation_has_p_and_CI",
+      "status": "PASS",
+      "detail": "cols=['dataset', 'celltype', 'D_zscore_exposed_minus_control', 'permutation_p_two_sided', 'n_permutations', 'CI95_lo', 'CI95_hi', 'D_effectsize_sensitivity', 'n_control', 'n_exposed', 'FDR_BH_family_B_within_dataset', 'significant_FDR_005']"
+    },
+    {
+      "check": "separation_p_floor",
+      "status": "PASS",
+      "detail": "min=0.2"
+    },
+    {
+      "check": "separation_CI_p_consistency",
+      "status": "PASS",
+      "detail": "p>=0.4 but CI excludes 0 in 0 of 11 rows"
+    },
+    {
+      "check": "annotation_margin_gate_present",
+      "status": "PASS",
+      "detail": "qc_summary.json:qc_thresholds"
+    },
+    {
+      "check": "lowconfidence_count_matches_annotation",
+      "status": "PASS",
+      "detail": "clusters=18, cells=27545"
+    },
+    {
+      "check": "B1_BH_recompute_GSE267933",
+      "status": "PASS",
+      "detail": "max_diff=0.00e+00"
+    },
+    {
+      "check": "B1_BH_recompute_GSE222430",
+      "status": "PASS",
+      "detail": "max_diff=0.00e+00"
+    },
+    {
+      "check": "independent_recompute_delta",
+      "status": "PASS",
+      "detail": "recomputed=0.0094766267 stored=0.0094766267"
+    },
+    {
+      "check": "independent_recompute_p",
+      "status": "PASS",
+      "detail": "recomputed=0.600000 stored=0.600000"
+    },
+    {
+      "check": "manifest_integrity",
+      "status": "PASS",
+      "detail": "mismatches=[]"
+    },
+    {
+      "check": "manuscript_number_sources_exist",
+      "status": "PASS",
+      "detail": "tracked=25 missing=[]"
+    }
+  ],
+  "n_pass": 29,
+  "n_fail": 0,
+  "seed": 20261125
+}

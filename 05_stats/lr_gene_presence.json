@@ -1,0 +1,262 @@
+{
+  "GSE267933": {
+    "Cx3cl1-Cx3cr1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Csf1-Csf1r": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Il1b-Il1r1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Tnf-Tnfrsf1a": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Tgfb1-Tgfbr1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Pdgfb-Pdgfrb": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Vegfa-Flt1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Angpt1-Tek": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Sema3a-Nrp1": {
+      "ligand_found": false,
+      "receptor_found": true
+    },
+    "Ephb2-Efnb1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Apoe-Ldlr": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Apoe-Lrp8": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "C3-C3ar1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Ccl2-Ccr2": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Cxcl10-Cxcr3": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Mif-Cd74": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Hmgb1-Tlr4": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "S100b-Ager": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Notch1-Jag1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Dll1-Notch1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Faslg-Tnfrsf6": {
+      "ligand_found": false,
+      "receptor_found": false
+    },
+    "Tnfsf10-Tnfrsf10b": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Lgals3-Trem2": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Bdnf-Ntrk2": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Ntf3-Ntrk3": {
+      "ligand_found": false,
+      "receptor_found": true
+    },
+    "Gdnf-Ret": {
+      "ligand_found": false,
+      "receptor_found": false
+    },
+    "Fgf2-Fgfr1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Igf1-Igf1r": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Cxcl12-Cxcr4": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Il6-Il6ra": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Il10-Il10ra": {
+      "ligand_found": false,
+      "receptor_found": true
+    },
+    "Ccl3-Ccr1": {
+      "ligand_found": true,
+      "receptor_found": true
+    }
+  },
+  "GSE222430": {
+    "Cx3cl1-Cx3cr1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Csf1-Csf1r": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Il1b-Il1r1": {
+      "ligand_found": false,
+      "receptor_found": true
+    },
+    "Tnf-Tnfrsf1a": {
+      "ligand_found": false,
+      "receptor_found": true
+    },
+    "Tgfb1-Tgfbr1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Pdgfb-Pdgfrb": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Vegfa-Flt1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Angpt1-Tek": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Sema3a-Nrp1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Ephb2-Efnb1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Apoe-Ldlr": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Apoe-Lrp8": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "C3-C3ar1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Ccl2-Ccr2": {
+      "ligand_found": false,
+      "receptor_found": false
+    },
+    "Cxcl10-Cxcr3": {
+      "ligand_found": false,
+      "receptor_found": false
+    },
+    "Mif-Cd74": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Hmgb1-Tlr4": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "S100b-Ager": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Notch1-Jag1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Dll1-Notch1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Faslg-Tnfrsf6": {
+      "ligand_found": false,
+      "receptor_found": false
+    },
+    "Tnfsf10-Tnfrsf10b": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Lgals3-Trem2": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Bdnf-Ntrk2": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Ntf3-Ntrk3": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Gdnf-Ret": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Fgf2-Fgfr1": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Igf1-Igf1r": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Cxcl12-Cxcr4": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Il6-Il6ra": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Il10-Il10ra": {
+      "ligand_found": true,
+      "receptor_found": true
+    },
+    "Ccl3-Ccr1": {
+      "ligand_found": false,
+      "receptor_found": false
+    }
+  }
+}

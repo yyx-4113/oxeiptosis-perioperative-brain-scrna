@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.h5ad
+*.tar
+*.gz
+01_data/raw/

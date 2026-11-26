@@ -1,0 +1,94 @@
+{
+  "GSE267933": {
+    "ox_core": {
+      "present": [
+        "Aifm1",
+        "Keap1",
+        "Pgam5"
+      ],
+      "missing": []
+    },
+    "nrf2_antag": {
+      "present": [
+        "Nfe2l2",
+        "Nqo1",
+        "Gclc",
+        "Gclm"
+      ],
+      "missing": []
+    },
+    "ferro_driver": {
+      "present": [
+        "Acsl4",
+        "Lpcat3",
+        "Pebp1",
+        "Ncoa4",
+        "Tfrc",
+        "Sat1",
+        "Elavl1"
+      ],
+      "missing": [
+        "Alox15"
+      ]
+    },
+    "ferro_suppressor": {
+      "present": [
+        "Gpx4",
+        "Slc7a11",
+        "Fth1",
+        "Ftl1",
+        "Aifm2",
+        "Hmox1",
+        "Cisd1",
+        "Prdx6"
+      ],
+      "missing": []
+    }
+  },
+  "GSE222430": {
+    "ox_core": {
+      "present": [
+        "Aifm1",
+        "Keap1",
+        "Pgam5"
+      ],
+      "missing": []
+    },
+    "nrf2_antag": {
+      "present": [
+        "Nfe2l2",
+        "Nqo1",
+        "Gclc",
+        "Gclm"
+      ],
+      "missing": []
+    },
+    "ferro_driver": {
+      "present": [
+        "Acsl4",
+        "Lpcat3",
+        "Pebp1",
+        "Ncoa4",
+        "Tfrc",
+        "Sat1",
+        "Elavl1"
+      ],
+      "missing": [
+        "Alox15"
+      ]
+    },
+    "ferro_suppressor": {
+      "present": [
+        "Gpx4",
+        "Slc7a11",
+        "Fth1",
+        "Ftl1",
+        "Aifm2",
+        "Hmox1",
+        "Cisd1",
+        "Prdx6"
+      ],
+      "missing": []
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "fdr_family": "A:ox_core(celltype x dataset); B:secondary(per dataset); C:LR(per dataset)",
+  "fdr_family_sizes": {
+    "A_primary_ox_core": 11,
+    "B_secondary_by_dataset": {
+      "GSE267933": 25,
+      "GSE222430": 30
+    }
+  },
+  "n_tests": 66,
+  "min_possible_two_sided_p": 0.1,
+  "exact_permutations_per_test": 20,
+  "bootstrap_reps": 10000,
+  "delta_statistic": "median",
+  "primary_effect_size": "Cliff_delta",
+  "seed": 20261125,
+  "downsample_per_sample_celltype": 100,
+  "max_cells_per_sample": 20000
+}

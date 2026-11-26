@@ -1,0 +1,6 @@
+﻿dataset,tier,species,tissue,exposure,caveat
+GSE267933,INFERENCE,mouse,hippocampus,"2.5% sevoflurane + 50% O2, 30 min + laparotomy; 24 h",drug effect not separable from surgical stress
+GSE222430,INFERENCE,mouse,hippocampus,2% sevoflurane 6 h vs air control; hippocampus harvested 24 h later,24 h single time point
+GSE153598,LOCALIZATION_ONLY,rhesus macaque,hippocampus,P7/P14/P28 4 h sevoflurane; 4 libraries per pooled tissue,n=1 animal per condition; libraries are technical splits
+GSE196239,LOCALIZATION_ONLY,human,prefrontal cortex primary culture,3.3% sevoflurane 6 h / 2 h recovery; one library per condition,one library per condition; descriptive only
+GSE141242,BULK_REFERENCE,rat,hippocampus,2.5% sevoflurane 4 h vs 100% O2; n=3 microarray,"bulk array, no cell-type resolution"

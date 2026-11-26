@@ -1,0 +1,28 @@
+{
+  "qc_thresholds": {
+    "min_genes_per_cell": 200,
+    "min_counts_per_cell": 500,
+    "max_mt_pct": 15.0,
+    "min_cells_per_gene": 3,
+    "n_hvg": 2000,
+    "n_pcs": 30,
+    "resolution": 0.8,
+    "min_cells_per_celltype_per_sample": 20,
+    "downsample_per_sample_celltype": 100,
+    "max_cells_per_sample": 20000,
+    "min_annotation_margin": 0.05
+  },
+  "dataset_totals": {
+    "GSE222430": {
+      "samples": 6,
+      "cells_raw": 50466,
+      "cells_after_qc": 50256
+    },
+    "GSE267933": {
+      "samples": 6,
+      "cells_raw": 20684,
+      "cells_after_qc": 17065
+    }
+  },
+  "seed": 20261125
+}

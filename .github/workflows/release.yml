@@ -1,0 +1,24 @@
+name: Release checks
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Verify manifest integrity
+        run: python scripts/50_manifest.py && python scripts/90_audit.py
+      - name: Fail on audit errors
+        run: |
+          python - <<'PY'
+          import json
+          r = json.load(open('08_audit/audit_report.json'))
+          assert r['n_fail'] == 0, r['checks']
+          PY

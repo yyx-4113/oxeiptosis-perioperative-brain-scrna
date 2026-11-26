@@ -1,0 +1,9 @@
+﻿dataset,module,present,missing
+GSE267933,ox_core,Aifm1;Keap1;Pgam5,
+GSE267933,nrf2_antag,Nfe2l2;Nqo1;Gclc;Gclm,
+GSE267933,ferro_driver,Acsl4;Lpcat3;Pebp1;Ncoa4;Tfrc;Sat1;Elavl1,Alox15
+GSE267933,ferro_suppressor,Gpx4;Slc7a11;Fth1;Ftl1;Aifm2;Hmox1;Cisd1;Prdx6,
+GSE222430,ox_core,Aifm1;Keap1;Pgam5,
+GSE222430,nrf2_antag,Nfe2l2;Nqo1;Gclc;Gclm,
+GSE222430,ferro_driver,Acsl4;Lpcat3;Pebp1;Ncoa4;Tfrc;Sat1;Elavl1,Alox15
+GSE222430,ferro_suppressor,Gpx4;Slc7a11;Fth1;Ftl1;Aifm2;Hmox1;Cisd1;Prdx6,

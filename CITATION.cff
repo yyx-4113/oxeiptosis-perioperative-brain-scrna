@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this analysis, please cite the associated manuscript and this software release."
+title: "Oxeiptosis localization after sevoflurane: reproducible single-cell reanalysis"
+version: 1.0.0
+date-released: 2026-11-26
+license: MIT
+authors:
+  - family-names: Yang
+    given-names: Yongxin
+    affiliation: "The Second Affiliated Hospital of Fujian University of Traditional Chinese Medicine"
+    orcid: "https://orcid.org/0009-0004-9698-6552"
+repository-code: "https://github.com/yyx-4113/oxeiptosis-perioperative-brain-scrna"
+keywords:
+  - oxeiptosis
+  - sevoflurane
+  - single-cell RNA sequencing
+  - hippocampus
+  - permutation test
