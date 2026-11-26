@@ -77,6 +77,14 @@ check("delta_statistic_protocol", meta_stats.get("delta_statistic") == "median",
 fam = meta_stats.get("fdr_family_sizes", {})
 check("fdr_family_A_declared", int(fam.get("A_primary_ox_core", 0)) > 0, fam)
 check("fdr_family_B1_declared", bool(fam.get("B1_secondary_by_dataset")), fam)
+# Round-4: the amendment id quoted in stats_metadata must match amendments.md,
+# so that the manuscript's "amendment A7" claim is machine-checked.
+_decl = str(meta_stats.get("fdr_family_declared_in_plan", ""))
+_amd_p = AUDIT / "amendments.md"
+_amd_txt = _amd_p.read_text(encoding="utf-8") if _amd_p.exists() else ""
+check("fdr_amendment_id_consistent",
+      "A7" in _decl and "| A7 |" in _amd_txt,
+      f"declared='{_decl[:60]}' amendments_has_A7={'| A7 |' in _amd_txt}")
 # separation endpoint must carry inference (Round 2, statistics M3)
 sp_path = STATS / "separation_tests.csv"
 if sp_path.exists():

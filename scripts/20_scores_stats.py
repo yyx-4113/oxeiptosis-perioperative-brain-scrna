@@ -229,7 +229,7 @@ tdf = pd.DataFrame(test_rows)
 # Round 3: family labels now follow the manuscript exactly (A / B1 / B2 / C).
 # The pre-analysis plan declared A, B and C; family B was split into B1
 # (secondary modules) and B2 (separation endpoint D) during implementation,
-# before any test statistic was inspected.  That deviation is amendment A5 in
+# before any test statistic was inspected.  That deviation is amendment A7 in
 # 08_audit/amendments.md and must not be described as pre-registration.
 t = tdf["module"].to_numpy()
 famA = t == "ox_core"
@@ -258,7 +258,7 @@ cdf.to_csv(STATS / "composition_tests.csv", index=False, encoding="utf-8-sig")
 meta = {
     "fdr_family": ("A:ox_core(celltype x dataset); B1:secondary modules(per dataset); "
                    "B2:separation D(per dataset); C:LR(per dataset)"),
-    "fdr_family_declared_in_plan": "A, B, C (three families); B split into B1/B2 as amendment A5",
+    "fdr_family_declared_in_plan": "A, B, C (three families); B split into B1/B2 as amendment A7",
     "fdr_family_sizes": {
         "A_primary_ox_core": int(famA.sum()),
         "B1_secondary_by_dataset": {str(d): int(((tdf.dataset == d) & famB).sum()) for d in tdf.dataset.unique()},
