@@ -4,3 +4,6 @@ __pycache__/
 *.tar
 *.gz
 01_data/raw/
+
+# CI workflow kept in the analysis workspace; re-add after granting the workflow scope
+.github/workflows/
